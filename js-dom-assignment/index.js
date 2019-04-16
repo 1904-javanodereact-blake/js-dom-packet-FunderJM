@@ -5,7 +5,10 @@
 // Define function getUSA()
 // Find the html element that contains "USA".
 // Print that element's contents.
-
+new function GetUSA() {
+    let getstates = document.querySelector("USA");
+    return getstates;
+}
 // 2. Sales
 // Define function getPeopleInSales()
 // Print the names of all the people in the sales department.
