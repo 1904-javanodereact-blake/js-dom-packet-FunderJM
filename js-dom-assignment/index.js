@@ -5,9 +5,23 @@
 // Define function getUSA()
 // Find the html element that contains "USA".
 // Print that element's contents.
-new function GetUSA() {
-    let getstates = document.querySelector("USA");
-    return getstates;
+function getUSA() {
+    let htmlElement = document.getElementsByTagName('html')[0];
+    let htmlChildren = htmlElement.children;
+    let htmlarray = [];
+    htmlarray.unshift(htmlElement);
+    while(htmlarray.length > 0) {
+        let stackpop = htmlarray.shift();
+        let stackchildren = stackpop.children;
+
+        for(let i = 0; i <stackchildren.length; i++){
+            htmlarray.unshift(stackchildren[i]);
+        }
+        if(stackpop.innertext === `USA`){
+            console.log(stackpop.innertext);
+            return;
+        }
+    }
 }
 // 2. Sales
 // Define function getPeopleInSales()
