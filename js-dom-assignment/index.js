@@ -6,10 +6,20 @@
 // Find the html element that contains "USA".
 // Print that element's contents.
 function getUSA() {
-    let elementsearch = document.getElementsByName('*');
-    for(let i = 0; i < elementsearch.length; i++){
-        if (elementsearch[i].innerText === 'html'){
-            console.log(elementsearch[i]);
+    let htmlElement = document.getElementsByTagName('html')[0];
+    let htmlChildren = htmlElement.children;
+    let htmlarray = [];
+    htmlarray.unshift(htmlElement);
+    while(htmlarray.length > 0) {
+        let stackpop = htmlarray.shift();
+        let stackchildren = stackpop.children;
+
+        for(let i = 0; i <stackchildren.length; i++){
+            htmlarray.unshift(stackchildren[i]);
+        }
+        if(stackpop.innertext === `USA`){
+            console.log(stackpop.innertext);
+            return;
         }
     }
 }
