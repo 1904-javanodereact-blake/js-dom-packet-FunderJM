@@ -6,23 +6,32 @@
 // Find the html element that contains "USA".
 // Print that element's contents.
 function getUSA() {
-    let htmlElement = document.getElementsByTagName('html')[0];
-    let htmlChildren = htmlElement.children;
-    let htmlarray = [];
-    htmlarray.unshift(htmlElement);
-    while(htmlarray.length > 0) {
-        let stackpop = htmlarray.shift();
-        let stackchildren = stackpop.children;
-
-        for(let i = 0; i <stackchildren.length; i++){
-            htmlarray.unshift(stackchildren[i]);
-        }
-        if(stackpop.innertext === `USA`){
-            console.log(stackpop.innertext);
-            return;
+    const htmlElement = document.getElementsByTagName('*');
+    for(let i = 0; i < htmlElement.length; i++){
+        if(htmlElement[i].textContent === 'USA'){
+            console.log(htmlElement[i].innertext);
         }
     }
 }
+// function getUSA() {
+//     let htmlElement = document.getElementsByTagName('*')[0];
+//     let htmlarray = [];
+//     htmlarray.unshift(htmlElement);
+//     while(htmlarray.length > 0) {
+//         let stackpop = htmlarray.shift();
+//         let stackchildren = stackpop.children;
+
+//         for(let i = 0; i <stackchildren.length; i++){
+//             htmlarray.unshift(stackchildren[i]);
+//         }
+//         for(let i = 0; i < stackchildren.length; i++){
+//             if(stackpop.innertext === `USA`){
+//                 console.log(stackpop.innertext);
+//                 return;
+//             }
+//         }
+//     }
+// }
 // 2. Sales
 // Define function getPeopleInSales()
 // Print the names of all the people in the sales department.
