@@ -9,33 +9,22 @@ function getUSA() {
     const htmlElement = document.getElementsByTagName('*');
     for(let i = 0; i < htmlElement.length; i++){
         if(htmlElement[i].textContent === 'USA'){
-            console.log(htmlElement[i].innertext);
+            console.log(htmlElement[i].textContent);
+            return;
         }
     }
 }
-// function getUSA() {
-//     let htmlElement = document.getElementsByTagName('*')[0];
-//     let htmlarray = [];
-//     htmlarray.unshift(htmlElement);
-//     while(htmlarray.length > 0) {
-//         let stackpop = htmlarray.shift();
-//         let stackchildren = stackpop.children;
-
-//         for(let i = 0; i <stackchildren.length; i++){
-//             htmlarray.unshift(stackchildren[i]);
-//         }
-//         for(let i = 0; i < stackchildren.length; i++){
-//             if(stackpop.innertext === `USA`){
-//                 console.log(stackpop.innertext);
-//                 return;
-//             }
-//         }
-//     }
-// }
 // 2. Sales
 // Define function getPeopleInSales()
 // Print the names of all the people in the sales department.
-
+function getPeopleInSales() {
+    const htmlSales = document.getElementsByTagName('*');
+    for(let i = 0; i < htmlSales.length; i++){
+        if(htmlSales[i].textContent === 'Sales'){
+            console.log(htmlSales[i-1].textContent);
+        }
+    }
+}
 
 // 3. Click Here
 // Define function getAnchorChildren()
