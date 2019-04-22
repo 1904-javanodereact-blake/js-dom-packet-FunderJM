@@ -32,14 +32,15 @@ function getPeopleInSales() {
 // Print the contents of <span>
 function getAnchorChildren() {
     const htmltags = document.querySelectorAll('a');
-    console.log(htmltags.textContent);
-    // for(let i = 0; i < htmltags.children.length; i++){
-    //     let htmlchild = htmltags.children[i];
-
-    //     if(htmlchild.tagname === 'span'){
-    //         console.log(htmlchild.textContent);
-    //     }
-    // }
+    // console.log(htmltags);
+    for(let i = 0; i < htmltags.length; i++){
+        if(htmltags[i].firstChild !== null){
+            let htmlchild = htmltags[i].querySelectorAll('span');
+            for(let m = 0; m < htmlchild.length; m++){
+                console.log(htmlchild[m].textContent);
+            }
+        }
+    }
 }
 
 // 4. Hobbies
