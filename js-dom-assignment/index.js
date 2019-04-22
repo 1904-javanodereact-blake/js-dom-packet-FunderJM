@@ -51,7 +51,7 @@ function getHobbies() {
     for(let i = 0; i < htmlhobby.length; i++){
         let value = htmlhobby[i].value;
         let contents = htmlhobby[i].textContent;
-        console.log(value + ' ' + contents);
+        console.log(`${value} ${contents}`);
     }
 }
 
@@ -60,11 +60,6 @@ function getHobbies() {
 // Find all elements with "data-customAttr" attribute
 // Print the value of the attribute.
 // Print the element that has the attribute. 
-function getCustomAttribute(){
-    const customAttr = document.querySelectorAll('data-customAttr');
-
-
-}
 
 // 6. Sum Event
 // NOTE: Write unobtrusive Javascript
@@ -92,13 +87,14 @@ function getCustomAttribute(){
 // In this example, green is the new value and blue is the old value.
 // Make the background color (of all favoriteColor radio buttons) the newly selected favoriteColor
 const favcolor = document.getElementsByName('favoriteColor');
+let oldcolor;
 for(let i = 0; i < favcolor.length; i++){
-    favcolor[i].addEventListener('click',changeColor());
+    favcolor[i].addEventListener('click',changeColor,favcolor[i].textContent);
 }
 
 function changeColor(){
-    let oldcolor = document.getElementsByName('favoriteColor').textContent;
-    alert(`So you like ${favcolor.textContent} more than ${oldcolor} now?`);
+    alert(`So you like ${oldcolor} now?`);
+    oldcolor = favcolor.textContent;
 }
 // 9. Show/Hide Event
 // NOTE: Write unobtrusive Javascript
