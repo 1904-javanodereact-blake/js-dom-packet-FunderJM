@@ -30,6 +30,17 @@ function getPeopleInSales() {
 // Define function getAnchorChildren()
 // Find all anchor elements with a <span> child.
 // Print the contents of <span>
+function getAnchorChildren() {
+    const htmltags = document.querySelectorAll('a');
+    console.log(htmltags.textContent);
+    // for(let i = 0; i < htmltags.children.length; i++){
+    //     let htmlchild = htmltags.children[i];
+
+    //     if(htmlchild.tagname === 'span'){
+    //         console.log(htmlchild.textContent);
+    //     }
+    // }
+}
 
 // 4. Hobbies
 // Define function getHobbies()
@@ -91,3 +102,15 @@ function getPeopleInSales() {
 // Define function walkTheDOM(node, func)
 // This function should traverse every node in the DOM. Use recursion.
 // On each node, call func(node).
+function walkTheDOM(node) {
+    if(node.nodeType === 1){
+        console.log(node.tagName);
+
+        node = node.firstChild;
+
+        while(node) {
+            walkTheDOM(node);
+            node = node.nextSibling;
+        }
+    }
+}
