@@ -32,7 +32,6 @@ function getPeopleInSales() {
 // Print the contents of <span>
 function getAnchorChildren() {
     const htmltags = document.querySelectorAll('a');
-    // console.log(htmltags);
     for(let i = 0; i < htmltags.length; i++){
         if(htmltags[i].firstChild !== null){
             let htmlchild = htmltags[i].querySelectorAll('span');
@@ -47,12 +46,25 @@ function getAnchorChildren() {
 // Define function getHobbies()
 // Find all checked options in the 'skills' select element.
 // Print the value and the contents.
+function getHobbies() {
+    const htmlhobby = document.querySelectorAll('skills');
+    for(let i = 0; i < htmlhobby.length; i++){
+        let value = htmlhobby[i].value;
+        let contents = htmlhobby[i].textContent;
+        console.log(value + ' ' + contents);
+    }
+}
 
 // 5. Custom Attribute
 // Define function getCustomAttribute()
 // Find all elements with "data-customAttr" attribute
 // Print the value of the attribute.
 // Print the element that has the attribute. 
+function getCustomAttribute(){
+    const customAttr = document.querySelectorAll('data-customAttr');
+
+
+}
 
 // 6. Sum Event
 // NOTE: Write unobtrusive Javascript
@@ -79,7 +91,15 @@ function getAnchorChildren() {
 // 	"So you like green more than blue now?"
 // In this example, green is the new value and blue is the old value.
 // Make the background color (of all favoriteColor radio buttons) the newly selected favoriteColor
+const favcolor = document.getElementsByName('favoriteColor');
+for(let i = 0; i < favcolor.length; i++){
+    favcolor[i].addEventListener('click',changeColor());
+}
 
+function changeColor(){
+    let oldcolor = document.getElementsByName('favoriteColor').textContent;
+    alert(`So you like ${favcolor.textContent} more than ${oldcolor} now?`);
+}
 // 9. Show/Hide Event
 // NOTE: Write unobtrusive Javascript
 // When user hovers over an employees name:
